@@ -25,11 +25,14 @@ var sysDark=false; try{sysDark=window.matchMedia('(prefers-color-scheme: dark)')
 var dark=storedTheme?(storedTheme==='dark'):sysDark;
 if(dark){root.setAttribute('data-theme','dark');}
 
-var SEC={'about':'--prim','stations':'--sel','geography':'--info','advertisers':'--amber2','production':'--st-enr','result':'--ok','contacts':'--prim2'};
+var SEC={
+  'about':'--prim','stations':'--sel','geography':'--info','advertisers':'--amber2',
+  'production':'--st-enr','result':'--ok','contacts':'--prim2',
+  'rates':'--amber2','packs':'--prim','special':'--ok','network':'--st-enr','terms':'--info'
+};
 var activeSec='';
 function paintAccent(){
-  var v=SEC[activeSec];
-  if(!v){return;}
+  var v=SEC[activeSec]||'--prim';
   var c=(v==='--sel')?(CV[sel]||colorOf('--st-max')):colorOf(v);
   root.style.setProperty('--prog-c',c);
 }
@@ -165,6 +168,7 @@ guard(function(){
     var ctx=c.getContext('2d');
     if(ctx){eqList.push({el:c,ctx:ctx,id:c.getAttribute('data-eq'),vals:[]});}
   });
+  if(!eqList.length){return;}
   sizeEq(); drawStatic(); syncLoop();
   doc.addEventListener('visibilitychange',syncLoop);
   if('IntersectionObserver' in window){
@@ -233,6 +237,7 @@ function selectSt(id){
 guard(function(){
   scale=$('#scale'); needle=$('#needle');
   if(needle){needle.style.left='0px';}
+  if(!$$('.stb').length && !$$('.stop').length){return;}
   $$('.stb').forEach(function(b){
     b.addEventListener('keydown',function(e){
       var bs=$$('.stb'), i=bs.indexOf(b), t=-1;
@@ -309,6 +314,7 @@ guard(function(){
 
 /* часы блоков + «сейчас блок» */
 guard(function(){
+  if(!$$('.clockcard').length){return;}
   function tick(){
     var d=new Date(), mins=d.getMinutes(), frac=mins+d.getSeconds()/60;
     $$('.ck-hand').forEach(function(h){h.style.transform='rotate('+(frac*6)+'deg)';});
@@ -329,7 +335,7 @@ guard(function(){
   setInterval(tick,30000);
 });
 
-/* карта — только одноразовая прорисовка, без кликов и тостов */
+/* карта — одноразовая прорисовка, без кликов и тостов */
 guard(function(){
   var svg=$('#mapsvg'); if(!svg){return;}
   var paths=$$('.draw',svg);
@@ -416,16 +422,23 @@ guard(function(){
 
   if('IntersectionObserver' in window){
     var links=$$('#nlinks a');
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(!en.isIntersecting){return;}
-        activeSec=en.target.id;
-        var id='#'+activeSec;
-        links.forEach(function(a){a.classList.toggle('act',a.getAttribute('href')===id);});
-        paintAccent();
-      });
-    },{rootMargin:'-45% 0px -50% 0px'});
-    Object.keys(SEC).forEach(function(id){var s=doc.getElementById(id);if(s){io.observe(s);}});
+    var ids=[];
+    links.forEach(function(a){
+      var h=a.getAttribute('href')||'';
+      if(h.charAt(0)==='#'&&h.length>1){ids.push(h.slice(1));}
+    });
+    if(ids.length){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(!en.isIntersecting){return;}
+          activeSec=en.target.id;
+          var id='#'+activeSec;
+          links.forEach(function(a){a.classList.toggle('act',a.getAttribute('href')===id);});
+          paintAccent();
+        });
+      },{rootMargin:'-45% 0px -50% 0px'});
+      ids.forEach(function(id){var s=doc.getElementById(id);if(s){io.observe(s);}});
+    }
   }
 });
 
@@ -472,8 +485,7 @@ guard(function(){
   window.addEventListener('resize',function(){
     clearTimeout(t);
     t=setTimeout(function(){
-      sizeEq();
-      if(!animOK()){drawStatic();}
+      if(eqList.length){sizeEq(); if(!animOK()){drawStatic();}}
       placeNeedle(false);
       moveRail(sel);
     },150);
