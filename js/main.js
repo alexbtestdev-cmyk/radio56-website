@@ -329,7 +329,7 @@ guard(function(){
   setInterval(tick,30000);
 });
 
-/* карта */
+/* карта — только одноразовая прорисовка, без кликов и тостов */
 guard(function(){
   var svg=$('#mapsvg'); if(!svg){return;}
   var paths=$$('.draw',svg);
@@ -353,38 +353,22 @@ guard(function(){
     setTimeout(function(){if(!svg.classList.contains('drawn')){draw();}},4000);
   }else{draw();}
   window.__mapDraw=draw;
+});
 
-  function pulse(city){
-    var ring=$('.ring[data-city="'+city+'"]',svg);
-    if(!ring||!animOK()){return;}
-    ring.classList.remove('pulse'); void ring.getBoundingClientRect(); ring.classList.add('pulse');
-    setTimeout(function(){ring.classList.remove('pulse');},1250);
+/* сворачиваемые блоки: десктоп открыт, мобильный закрыт */
+guard(function(){
+  var ds=$$('details.fold');
+  if(!ds.length){return;}
+  var mq=null; try{mq=window.matchMedia('(max-width:760px)');}catch(e){}
+  function sync(){
+    var mob=mq?mq.matches:window.innerWidth<=760;
+    ds.forEach(function(d){d.open=!mob;});
   }
-  function flash(city){
-    var target=null;
-    $$('.ccard').forEach(function(c){
-      var on=c.getAttribute('data-city')===city;
-      c.classList.toggle('hot',on);
-      if(on){target=c;}
-    });
-    pulse(city);
-    if(target&&window.innerWidth<=1120){target.scrollIntoView({behavior:animOK()?'smooth':'auto',block:'nearest'});}
-    toast('Город показан в карточках');
+  sync();
+  if(mq){
+    if(mq.addEventListener){mq.addEventListener('change',sync);}
+    else if(mq.addListener){mq.addListener(sync);}
   }
-  $$('.cnode',svg).forEach(function(n){
-    var city=n.getAttribute('data-city');
-    n.addEventListener('click',function(){flash(city);});
-    n.addEventListener('mouseenter',function(){pulse(city);});
-    n.addEventListener('focus',function(){pulse(city);});
-    n.addEventListener('keydown',function(e){
-      if(e.key==='Enter'||e.key===' '){e.preventDefault();flash(city);}
-    });
-  });
-  $$('.ccard').forEach(function(n){
-    var city=n.getAttribute('data-city');
-    n.addEventListener('click',function(){flash(city);});
-    n.addEventListener('mouseenter',function(){pulse(city);});
-  });
 });
 
 /* меню, скролл, активный раздел */
