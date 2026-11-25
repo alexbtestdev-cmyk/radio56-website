@@ -6,12 +6,7 @@ function $$(s,r){return Array.prototype.slice.call((r||doc).querySelectorAll(s))
 function guard(fn){try{fn();}catch(err){if(window.console&&console.warn){console.warn(err);}}}
 
 var RM=false; try{RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
-var MKEY='r56-motion', TKEY='r56-theme';
-var storedMotion=null, storedTheme=null;
-try{storedMotion=window.localStorage.getItem(MKEY);storedTheme=window.localStorage.getItem(TKEY);}catch(e){}
-var motion=!RM && storedMotion!=='off';
-function animOK(){return motion && !RM;}
-root.setAttribute('data-motion',animOK()?'on':'off');
+function animOK(){return !RM;}
 
 var NAME={maxima:'Максима ФМ',humor:'Юмор ФМ',energy:'Energy ФМ',iskatel:'Искатель'};
 var CVAR={maxima:'--st-max',humor:'--st-hum',energy:'--st-enr',iskatel:'--st-isk'};
@@ -21,6 +16,8 @@ function colorOf(v){try{return (getComputedStyle(root).getPropertyValue(v)||'').
 function readColors(){for(var k in CVAR){CV[k]=colorOf(CVAR[k]);}}
 var sel='maxima';
 
+var TKEY='r56-theme', storedTheme=null;
+try{storedTheme=window.localStorage.getItem(TKEY);}catch(e){}
 var sysDark=false; try{sysDark=window.matchMedia('(prefers-color-scheme: dark)').matches;}catch(e){}
 var dark=storedTheme?(storedTheme==='dark'):sysDark;
 if(dark){root.setAttribute('data-theme','dark');}
@@ -440,43 +437,6 @@ guard(function(){
       ids.forEach(function(id){var s=doc.getElementById(id);if(s){io.observe(s);}});
     }
   }
-});
-
-/* переключатель анимаций */
-guard(function(){
-  var btn=$('#motionBtn'), row=$('#motionRow'), state=$('#motionRowState');
-  function paint(){
-    var on=animOK();
-    root.setAttribute('data-motion',on?'on':'off');
-    if(btn){
-      btn.setAttribute('aria-pressed',on?'true':'false');
-      btn.setAttribute('aria-label','Анимации: '+(on?'включены':'выключены'));
-      btn.title='Анимации: '+(on?'включены':'выключены');
-    }
-    if(row){row.setAttribute('aria-pressed',on?'true':'false');}
-    if(state){state.textContent=on?'включены':'выключены';}
-  }
-  function apply(){
-    paint();
-    if(!animOK()){
-      revealItems.forEach(function(el){el.classList.remove('rvh');});
-      if(window.__mapDraw){window.__mapDraw();}
-      $$('.msvg .draw').forEach(function(p){p.style.strokeDasharray='none';p.style.strokeDashoffset='0';});
-      placeNeedle(false);
-      drawStatic();
-    }
-    syncLoop();
-  }
-  function toggle(){
-    if(RM){toast('Анимации отключены системной настройкой');return;}
-    motion=!motion;
-    try{window.localStorage.setItem(MKEY,motion?'on':'off');}catch(e){}
-    apply();
-    toast(motion?'Анимации включены':'Анимации выключены');
-  }
-  if(btn){btn.addEventListener('click',toggle);}
-  if(row){row.addEventListener('click',toggle);}
-  paint();
 });
 
 /* resize */

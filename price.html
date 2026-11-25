@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-motion="on">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,11 +34,11 @@
   "url":"https://alexbtestdev-cmyk.github.io/radio56-website/price.html",
   "provider":{"@type":"Organization","name":"ООО «Радио 56»","telephone":"+7-922-825-05-50","email":"radio56@bk.ru"},
   "itemListElement":[
-    {"@type":"Offer","name":"Старт","description":"4 дня × 4 выхода · ролик 20 сек · 1 частота · 16 выходов","price":"2400","priceCurrency":"RUB"},
-    {"@type":"Offer","name":"Неделя","description":"7 дней × 4 выхода · ролик 20 сек · 1 частота · 28 выходов","price":"3640","priceCurrency":"RUB"},
-    {"@type":"Offer","name":"Полумесяц","description":"14 дней × 4 выхода · ролик 20 сек · 1 частота · 56 выходов","price":"6720","priceCurrency":"RUB"},
-    {"@type":"Offer","name":"Месяц","description":"30 дней × 4 выхода + 2 бонусных · ролик 20 сек · 1 частота · 122 выхода","price":"12000","priceCurrency":"RUB"},
-    {"@type":"Offer","name":"Спецпредложение для местных клиентов","description":"4 выхода в день × 30 дней + 2 дополнительных · 1 частота · Максима ФМ, Искатель или Бугуруслан","price":"8400","priceCurrency":"RUB"}
+    {"@type":"Offer","name":"Старт","description":"4 дня × 4 выхода · ролик 20 сек · 1 частота · 16 выходов","price":"7200","priceCurrency":"RUB"},
+    {"@type":"Offer","name":"Неделя","description":"7 дней × 4 выхода · ролик 20 сек · 1 частота · 28 выходов","price":"10920","priceCurrency":"RUB"},
+    {"@type":"Offer","name":"Полумесяц","description":"14 дней × 4 выхода · ролик 20 сек · 1 частота · 56 выходов","price":"20160","priceCurrency":"RUB"},
+    {"@type":"Offer","name":"Месяц","description":"30 дней × 4 выхода + 2 бонусных · ролик 20 сек · 1 частота · 122 выхода","price":"36000","priceCurrency":"RUB"},
+    {"@type":"Offer","name":"Спецпредложение для местных клиентов","description":"4 выхода в день × 30 дней + 2 дополнительных · 1 частота · Максима ФМ, Искатель или Бугуруслан","price":"25200","priceCurrency":"RUB"}
   ]
 }
 </script>
@@ -70,10 +70,6 @@
     <a class="pbtn" href="tel:+79228250550" aria-label="Позвонить: 8 922 825-05-50">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3.5h3l1.5 4-2 1.4a12.5 12.5 0 0 0 6 6l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z"/></svg>
     </a>
-    <button class="mbtn" id="motionBtn" type="button" aria-pressed="true" aria-label="Анимации: включены">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 12h3l2.5-7 3.5 14 3-9 2 4h4"/></svg>
-      <span class="mbtn-t">Анимации</span><i class="dot" aria-hidden="true"></i>
-    </button>
     <button class="tbtn" id="themeBtn" type="button" aria-label="Переключить тему" aria-pressed="false">
       <svg class="sun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3 19 19M19 5l-1.7 1.7M6.7 17.3 5 19"/></svg>
       <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.6 14.6A8.8 8.8 0 0 1 9.4 3.4a9.3 9.3 0 1 0 11.2 11.2Z"/></svg>
@@ -89,7 +85,6 @@
   <a class="dl" href="#network">Сетевые тарифы <span>04</span></a>
   <a class="dl" href="#terms">Условия <span>05</span></a>
   <a class="dl" href="index.html">На главную <span>←</span></a>
-  <button class="mrow" id="motionRow" type="button" aria-pressed="true"><span>Анимации</span><b id="motionRowState">включены</b></button>
   <a class="btn ba" href="tel:+79228250550">📞 8&nbsp;922&nbsp;825-05-50</a>
 </div>
 
@@ -120,9 +115,9 @@
       <table>
         <thead><tr><th>Период</th><th>Время выхода</th><th>Стоимость секунды</th><th>Кто слушает</th></tr></thead>
         <tbody>
-          <tr><td data-th="Период"><span class="per"><i style="background:linear-gradient(180deg,var(--amber2),var(--amber))"></i>Прайм-тайм</span></td><td data-th="Время" class="tme">07:00–09:00 · 12:00–14:00 · 16:30–19:00</td><td data-th="Секунда"><b class="price">7,50&nbsp;₽</b></td><td data-th="Аудитория">Дорога на работу, обед, вечерний трафик</td></tr>
-          <tr><td data-th="Период"><span class="per"><i style="background:linear-gradient(180deg,var(--prim),var(--prim2))"></i>День / вечер</span></td><td data-th="Время" class="tme">09:00–12:00 · 14:00–16:30 · 19:00–24:00</td><td data-th="Секунда"><b class="price">6,00&nbsp;₽</b></td><td data-th="Аудитория">Офис, дом, автомобиль</td></tr>
-          <tr><td data-th="Период"><span class="per"><i style="background:var(--ink3)"></i>Ночь</span></td><td data-th="Время" class="tme">24:00–07:00</td><td data-th="Секунда"><b class="price">2,00&nbsp;₽</b></td><td data-th="Аудитория">Ночная смена, дальнобойщики</td></tr>
+          <tr><td data-th="Период"><span class="per"><i style="background:linear-gradient(180deg,var(--amber2),var(--amber))"></i>Прайм-тайм</span></td><td data-th="Время" class="tme">07:00–09:00 · 12:00–14:00 · 16:30–19:00</td><td data-th="Секунда"><b class="price">22,50&nbsp;₽</b></td><td data-th="Аудитория">Дорога на работу, обед, вечерний трафик</td></tr>
+          <tr><td data-th="Период"><span class="per"><i style="background:linear-gradient(180deg,var(--prim),var(--prim2))"></i>День / вечер</span></td><td data-th="Время" class="tme">09:00–12:00 · 14:00–16:30 · 19:00–24:00</td><td data-th="Секунда"><b class="price">18,00&nbsp;₽</b></td><td data-th="Аудитория">Офис, дом, автомобиль</td></tr>
+          <tr><td data-th="Период"><span class="per"><i style="background:var(--ink3)"></i>Ночь</span></td><td data-th="Время" class="tme">24:00–07:00</td><td data-th="Секунда"><b class="price">6,00&nbsp;₽</b></td><td data-th="Аудитория">Ночная смена, дальнобойщики</td></tr>
         </tbody>
       </table>
     </div>
@@ -138,34 +133,35 @@
       <h2 class="h2">Готовые пакеты <span class="acc">на одну частоту</span></h2>
       <p class="lead">Ролик 20 сек · 1 частота · 4 выхода в день. Пакеты не ставятся в ходовые блоки (конец часа).</p>
     </div>
+    <!-- Цены ×3 — временно, до решения директора по прайсу -->
     <div class="packs">
       <div class="pack" style="--pc:var(--info)" data-rv>
         <div class="pico">🚀</div><h4>СТАРТ</h4><div class="pd">4 дня × 4 выхода</div>
-        <div class="pack-price">2&nbsp;400&nbsp;₽<small>7,50&nbsp;₽/сек · 150&nbsp;₽ за выход</small></div>
+        <div class="pack-price">7&nbsp;200&nbsp;₽<small>22,50&nbsp;₽/сек · 450&nbsp;₽ за выход</small></div>
         <div class="dots" data-dots="16" data-bonus="0"></div><div class="dcap">16 выходов · 320 сек эфира</div>
         <div class="pprice"><a class="req" href="mailto:radio56@bk.ru?subject=%D0%9F%D0%B0%D0%BA%D0%B5%D1%82%20%D0%A1%D0%A2%D0%90%D0%A0%D0%A2">Заказать пакет</a></div>
       </div>
       <div class="pack" style="--pc:var(--prim);--i:1" data-rv>
         <div class="pico">📅</div><h4>НЕДЕЛЯ</h4><div class="pd">7 дней × 4 выхода</div>
-        <div class="pack-price">3&nbsp;640&nbsp;₽<small>6,50&nbsp;₽/сек · 130&nbsp;₽ за выход</small></div>
+        <div class="pack-price">10&nbsp;920&nbsp;₽<small>19,50&nbsp;₽/сек · 390&nbsp;₽ за выход</small></div>
         <div class="dots" data-dots="28" data-bonus="0"></div><div class="dcap">28 выходов · 560 сек эфира</div>
         <div class="pprice"><a class="req" href="mailto:radio56@bk.ru?subject=%D0%9F%D0%B0%D0%BA%D0%B5%D1%82%20%D0%9D%D0%95%D0%94%D0%95%D0%9B%D0%AF">Заказать пакет</a></div>
       </div>
       <div class="pack" style="--pc:var(--st-isk);--i:2" data-rv>
         <div class="pico">🗓️</div><h4>ПОЛУМЕСЯЦ</h4><div class="pd">14 дней × 4 выхода</div>
-        <div class="pack-price">6&nbsp;720&nbsp;₽<small>6,00&nbsp;₽/сек · 120&nbsp;₽ за выход</small></div>
+        <div class="pack-price">20&nbsp;160&nbsp;₽<small>18,00&nbsp;₽/сек · 360&nbsp;₽ за выход</small></div>
         <div class="dots" data-dots="56" data-bonus="0"></div><div class="dcap">56 выходов · 1 120 сек эфира</div>
         <div class="pprice"><a class="req" href="mailto:radio56@bk.ru?subject=%D0%9F%D0%B0%D0%BA%D0%B5%D1%82%20%D0%9F%D0%9E%D0%9B%D0%A3%D0%9C%D0%95%D0%A1%D0%AF%D0%A6">Заказать пакет</a></div>
       </div>
       <div class="pack" style="--pc:var(--amber2);--i:3" data-rv>
         <span class="pflag">Выгодно</span>
         <div class="pico">👑</div><h4>МЕСЯЦ</h4><div class="pd">30 дней × 4 выхода + 2 бонусных</div>
-        <div class="pack-price">12&nbsp;000&nbsp;₽<small>5,00&nbsp;₽/сек · 100&nbsp;₽ за выход</small></div>
+        <div class="pack-price">36&nbsp;000&nbsp;₽<small>15,00&nbsp;₽/сек · 300&nbsp;₽ за выход</small></div>
         <div class="dots" data-dots="120" data-bonus="2"></div><div class="dcap">122 выхода · 2 440 сек эфира</div>
         <div class="pprice"><a class="req" href="mailto:radio56@bk.ru?subject=%D0%9F%D0%B0%D0%BA%D0%B5%D1%82%20%D0%9C%D0%95%D0%A1%D0%AF%D0%A6">Заказать пакет</a></div>
       </div>
     </div>
-    <div class="note" data-rv><span>💡</span><span>Чем длиннее кампания, тем дешевле каждый выход: от 150&nbsp;₽ на «Старте» до 100&nbsp;₽ на «Месяце». Узнаваемость строится повтором, поэтому длинные пакеты работают заметнее коротких.</span></div>
+    <div class="note" data-rv><span>💡</span><span>Чем длиннее кампания, тем дешевле каждый выход: от 450&nbsp;₽ на «Старте» до 300&nbsp;₽ на «Месяце». Узнаваемость строится повтором, поэтому длинные пакеты работают заметнее коротких.</span></div>
   </div>
 </section>
 
@@ -180,21 +176,21 @@
     <div class="packs">
       <div class="pack" style="--pc:var(--ok)" data-rv>
         <div class="pico">🎁</div><h4>МАКСИМА ФМ</h4><div class="pd">Бузулук или Сорочинск · 4 выхода/день × 30 дней · 1 частота</div>
-        <div class="pack-price">8&nbsp;400&nbsp;₽/мес<small>3,50&nbsp;₽/сек · 70&nbsp;₽ за выход</small></div>
+        <div class="pack-price">25&nbsp;200&nbsp;₽/мес<small>10,50&nbsp;₽/сек · 210&nbsp;₽ за выход</small></div>
         <div class="dots" data-dots="120" data-bonus="2"></div>
         <div class="dcap">122 выхода · +2 доп. выхода (день + вечер)</div>
         <div class="pprice"><a class="req" href="mailto:radio56@bk.ru?subject=%D0%A1%D0%BF%D0%B5%D1%86%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%9C%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0">Заказать</a></div>
       </div>
       <div class="pack" style="--pc:var(--ok);--i:1" data-rv>
         <div class="pico">🎁</div><h4>ИСКАТЕЛЬ</h4><div class="pd">Бузулук · 4 выхода/день × 30 дней · золотой сегмент</div>
-        <div class="pack-price">8&nbsp;400&nbsp;₽/мес<small>3,50&nbsp;₽/сек · 70&nbsp;₽ за выход</small></div>
+        <div class="pack-price">25&nbsp;200&nbsp;₽/мес<small>10,50&nbsp;₽/сек · 210&nbsp;₽ за выход</small></div>
         <div class="dots" data-dots="120" data-bonus="2"></div>
         <div class="dcap">122 выхода · +2 доп. выхода (день + вечер)</div>
         <div class="pprice"><a class="req" href="mailto:radio56@bk.ru?subject=%D0%A1%D0%BF%D0%B5%D1%86%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%98%D1%81%D0%BA%D0%B0%D1%82%D0%B5%D0%BB%D1%8C">Заказать</a></div>
       </div>
       <div class="pack" style="--pc:var(--ok);--i:2" data-rv>
         <div class="pico">🎁</div><h4>БУГУРУСЛАН</h4><div class="pd">Юмор ФМ или Energy ФМ · 4 выхода/день × 30 дней · 1 частота</div>
-        <div class="pack-price">8&nbsp;400&nbsp;₽/мес<small>3,50&nbsp;₽/сек · 70&nbsp;₽ за выход</small></div>
+        <div class="pack-price">25&nbsp;200&nbsp;₽/мес<small>10,50&nbsp;₽/сек · 210&nbsp;₽ за выход</small></div>
         <div class="dots" data-dots="120" data-bonus="2"></div>
         <div class="dcap">122 выхода · +2 доп. выхода (день + вечер)</div>
         <div class="pprice"><a class="req" href="mailto:radio56@bk.ru?subject=%D0%A1%D0%BF%D0%B5%D1%86%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%91%D1%83%D0%B3%D1%83%D1%80%D1%83%D1%81%D0%BB%D0%B0%D0%BD">Заказать</a></div>
@@ -216,9 +212,9 @@
       <table>
         <thead><tr><th>Станция</th><th>Города</th><th>Частоты</th><th>Тариф</th><th>30 дней × 4 выхода × 20 сек</th></tr></thead>
         <tbody>
-          <tr><td data-th="Станция"><span class="per"><i style="background:var(--st-enr)"></i>Energy ФМ</span></td><td data-th="Города">3 города</td><td data-th="Частоты" class="tme">103.3 · 104.6 · 106.1</td><td data-th="Тариф"><b class="price">17,00&nbsp;₽/сек</b></td><td data-th="Пример"><b class="price">40&nbsp;800&nbsp;₽</b></td></tr>
-          <tr><td data-th="Станция"><span class="per"><i style="background:var(--st-hum)"></i>Юмор ФМ</span></td><td data-th="Города">3 города</td><td data-th="Частоты" class="tme">103.8 · 105.4 · 102.9</td><td data-th="Тариф"><b class="price">13,50&nbsp;₽/сек</b></td><td data-th="Пример"><b class="price">32&nbsp;400&nbsp;₽</b></td></tr>
-          <tr><td data-th="Станция"><span class="per"><i style="background:var(--st-max)"></i>Максима ФМ</span></td><td data-th="Города">2 города</td><td data-th="Частоты" class="tme">100.2 · 106.6</td><td data-th="Тариф"><b class="price">9,00&nbsp;₽/сек</b></td><td data-th="Пример"><b class="price">21&nbsp;600&nbsp;₽</b></td></tr>
+          <tr><td data-th="Станция"><span class="per"><i style="background:var(--st-enr)"></i>Energy ФМ</span></td><td data-th="Города">3 города</td><td data-th="Частоты" class="tme">103.3 · 104.6 · 106.1</td><td data-th="Тариф"><b class="price">51,00&nbsp;₽/сек</b></td><td data-th="Пример"><b class="price">122&nbsp;400&nbsp;₽</b></td></tr>
+          <tr><td data-th="Станция"><span class="per"><i style="background:var(--st-hum)"></i>Юмор ФМ</span></td><td data-th="Города">3 города</td><td data-th="Частоты" class="tme">103.8 · 105.4 · 102.9</td><td data-th="Тариф"><b class="price">40,50&nbsp;₽/сек</b></td><td data-th="Пример"><b class="price">97&nbsp;200&nbsp;₽</b></td></tr>
+          <tr><td data-th="Станция"><span class="per"><i style="background:var(--st-max)"></i>Максима ФМ</span></td><td data-th="Города">2 города</td><td data-th="Частоты" class="tme">100.2 · 106.6</td><td data-th="Тариф"><b class="price">27,00&nbsp;₽/сек</b></td><td data-th="Пример"><b class="price">64&nbsp;800&nbsp;₽</b></td></tr>
         </tbody>
       </table>
     </div>
@@ -237,7 +233,7 @@
       <div class="coef" style="--cc:var(--warn)"><b>+10%</b><span>Сезонная наценка<br>ноябрь–декабрь</span></div>
       <div class="coef" style="--cc:var(--ok)"><b>−5%</b><span>Сезонная скидка<br>июль–август</span></div>
       <div class="coef" style="--cc:var(--amber2)"><b>+30%</b><span>Позиционирование<br>первым в блоке</span></div>
-      <div class="coef" style="--cc:var(--prim)"><b>от 2&nbsp;000&nbsp;₽</b><span>Изготовление ролика<br>под ключ</span></div>
+      <div class="coef" style="--cc:var(--prim)"><b>от 6&nbsp;000&nbsp;₽</b><span>Изготовление ролика<br>под ключ</span></div>
     </div>
 
     <h3 class="h3" data-rv style="margin-top:clamp(26px,3vw,40px)">Важные условия</h3>
@@ -292,7 +288,7 @@
         <div class="fl">
           <a href="mailto:radio56@bk.ru">radio56@bk.ru</a>
           <a href="tel:+79228250550">8&nbsp;922&nbsp;825-05-50</a>
-          <span>Пн–Пт, 9:00–18:00 · работаем без офиса</span>
+          <span>Пн–Пт, 9:00–18:00</span>
           <span>Полные реквизиты — в разделе «Контакты» на сайте</span>
         </div>
       </div>
@@ -311,7 +307,7 @@
       <div class="disc"><span>⚠</span><span>Прайс-лист носит информационный характер. Цены указаны в рублях без НДС и не являются публичной офертой. Вещание ведётся исключительно в эфирном FM-диапазоне на основании лицензий Роскомнадзора. Трансляция аудиоконтента и потоковое вещание в сети Интернет не осуществляются.</span></div>
     </details>
     <div class="fbot">
-      <span>© 2007–2026 ООО «Радио 56». Все права защищены. · Сайт не использует cookies и не собирает персональные данные.</span>
+      <span>© 2007–2026 ООО «Радио 56». Все права защищены. · Сайт не использует cookies и не собирает персональные данные. <span class="age" aria-label="Информационная продукция для детей старше двенадцати лет">12+</span></span>
       <button class="top" type="button" data-act="top">↑ Наверх</button>
     </div>
   </div>
